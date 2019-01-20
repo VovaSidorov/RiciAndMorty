@@ -21,11 +21,11 @@ class HeroList extends Component {
     render() {
         console.log("render");
         return(
+
             <section className="Home__ShowcaseWrapper">
                 <div className="Home__ShowcaseInner">
 
                     {this.createHerosListHTML()}
-
                 </div>
             </section>
         )
