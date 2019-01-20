@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './style.css'
 
-const Header = () => {
+const Header = (props) => {
+    const {title,subTitle,subTitleHiden} = props;
     return(
         <section className="Header">
-            <h1 className="Home_Title">The Rick and Morty API</h1>Home__SubTitleWrappe
+            <h1 className="Home_Title">{title}</h1>
             <div className="Home__SubTitleWrapper">
-            <h2 className="Home__SubTitle"> Hey, did you ever want to hald a terry fold </h2>
-            <h2 className="Home__HiddenSubTitle"> &nbsp;&nbsp;&nbsp; I GOT ONE RIGHT HERE, GRAB MY TERRY FLAP </h2>
+            <h2 className="Home__SubTitle"> {subTitle}</h2>
+            <h2 className="Home__HiddenSubTitle">{subTitleHiden}  </h2>
             </div>
         </section>
     );

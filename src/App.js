@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
+        <Header title="THE RICK AND MORTY API" subTitle="Hey, did you ever want to hald a terry fold " subTitleHiden="&nbsp;&nbsp;&nbsp; I GOT ONE RIGHT HERE, GRAB MY TERRY FLAP"/>
         <HeroList />
       </Fragment>
     );
