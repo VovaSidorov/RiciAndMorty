@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './style.css';
 import HeroListElement from "../HeroListElement";
 
@@ -21,20 +21,27 @@ class HeroList extends Component {
     render() {
         console.log("render");
         return(
+            <Fragment>
+                <section className="Home__ShowcaseWrapper">
+                    <div className="Home__ShowcaseInner">
 
-            <section className="Home__ShowcaseWrapper">
-                <div className="Home__ShowcaseInner">
+                        {this.createHerosListHTML()}
 
-                    {this.createHerosListHTML()}
-                </div>
-            </section>
+                    </div>
+                </section>
+                <section>
+                    {/*<a href="">Prev</a>*/}
+                    {/*<span>25</span>*/}
+                    {/*<a href="">Next</a>*/}
+                </section>
+            </Fragment>
         )
     }
 
     componentDidMount() {
         console.log("componentDidMount");
 
-        fetch("https://rickandmortyapi.com/api/character/?page=2")
+        fetch("https://rickandmortyapi.com/api/character/?page=25")
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -47,4 +54,3 @@ class HeroList extends Component {
 }
 
 export default HeroList;
-
