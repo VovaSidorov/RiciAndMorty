@@ -1,6 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import './style.css';
 import HeroListElement from "../HeroListElement";
+import Pagination from "../Pagination";
+
+import fetchPersonagesData from "../../services/index";
 
 class HeroList extends Component {
 
@@ -20,6 +23,7 @@ class HeroList extends Component {
 
     render() {
         console.log("render");
+        const {page} = this.props.match.params;
         return(
             <Fragment>
                 <section className="Home__ShowcaseWrapper">
@@ -29,10 +33,8 @@ class HeroList extends Component {
 
                     </div>
                 </section>
-                <section>
-                    {/*<a href="">Prev</a>*/}
-                    {/*<span>25</span>*/}
-                    {/*<a href="">Next</a>*/}
+                <section className="Pagination__Wrapper">
+                 <Pagination page={page} info={this.state.info}/>
                 </section>
             </Fragment>
         )
@@ -41,8 +43,9 @@ class HeroList extends Component {
     componentDidMount() {
         console.log("componentDidMount");
 
-        fetch("https://rickandmortyapi.com/api/character/?page=25")
-            .then(res => res.json())
+        const {page} = this.props.match.params;
+
+        fetchPersonagesData(`https://rickandmortyapi.com/api/character/?page=${page}`)
             .then(res => {
                 console.log(res);
                 this.setState({

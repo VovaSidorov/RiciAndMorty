@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import HeroListElement from "../HeroListElement";
 import { Redirect } from "react-router-dom";
 
+import fetchSinglePersonageData from "../../services/index";
+
 class SingleHeroPage extends Component {
 
     state = {
@@ -40,8 +42,7 @@ class SingleHeroPage extends Component {
 
         const {id} = this.props.match.params;
 
-        fetch(`https://rickandmortyapi.com/api/character/${id}`)
-            .then(res => res.json())
+        fetchSinglePersonageData(`https://rickandmortyapi.com/api/character/${id}`)
             .then(res => {
                 console.log(res);
                 this.setState({

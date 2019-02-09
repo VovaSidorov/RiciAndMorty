@@ -5,7 +5,7 @@ import Header from "./components/Header";
 
 import SingleHeroPage from "./components/SingleHeroPage";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HeroList from "./components/HeroList";
 
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
                         sub_title_hidden="&nbsp;&nbsp;&nbsp;I got one right here, grab my terry flap&nbsp;&nbsp;&nbsp;"
                     />
                     <Route path="/" exact component={HeroList}/>
+                    <Route path="/page/:page" exact component={HeroList}/>
                     <Route path="/personage/:id" component={SingleHeroPage}/>
                 </Fragment>
             </Router>
