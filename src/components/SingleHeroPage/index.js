@@ -42,7 +42,7 @@ class SingleHeroPage extends Component {
 
         const {id} = this.props.match.params;
 
-        fetchSinglePersonageData(`https://rickandmortyapi.com/api/character/${id}`)
+        fetchSinglePersonageData(`https://rickandmortyapi.com/api/character/${id}` )
             .then(res => {
                 console.log(res);
                 this.setState({
